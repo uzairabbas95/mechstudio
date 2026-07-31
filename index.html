@@ -1,111 +1,169 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>MechStudio</title>
+  <title>MechStudio</title>
 
-<style>
+  <style>
+    :root {
+      --navy: #0f2a4a;
+      --blue: #1570ef;
+      --orange: #ff7a00;
+      --light: #f4f7fa;
+      --white: #ffffff;
+      --text: #263238;
+      --muted: #5f6b76;
+    }
 
-body{
-font-family:Arial;
-margin:0;
-background:#F5F5F5;
-}
+    * {
+      box-sizing: border-box;
+    }
 
-header{
-background:#0B2A4A;
-padding:80px;
-text-align:center;
-color:white;
-}
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.6;
+    }
 
-section{
-padding:40px;
-max-width:1000px;
-margin:auto;
-}
+    header {
+      background: linear-gradient(135deg, var(--navy), var(--blue));
+      color: var(--white);
+      text-align: center;
+      padding: 90px 20px;
+    }
 
-.card{
-background:white;
-padding:25px;
-margin:20px 0;
-border-radius:12px;
-box-shadow:0 5px 20px rgba(0,0,0,.1);
-}
+    header h1 {
+      margin: 0 0 12px;
+      font-size: 3.2rem;
+      letter-spacing: 1px;
+    }
 
-footer{
-background:#0B2A4A;
-color:white;
-padding:20px;
-text-align:center;
-}
+    header p {
+      max-width: 720px;
+      margin: 0 auto;
+      font-size: 1.2rem;
+    }
 
-</style>
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 60px 20px;
+    }
 
+    .section {
+      margin-bottom: 50px;
+    }
+
+    .section h2 {
+      color: var(--navy);
+      font-size: 2rem;
+      margin-bottom: 18px;
+    }
+
+    .card {
+      background: var(--light);
+      border-radius: 14px;
+      padding: 30px;
+      box-shadow: 0 8px 24px rgba(15, 42, 74, 0.08);
+    }
+
+    .mission {
+      border-left: 6px solid var(--orange);
+    }
+
+    .about p {
+      margin: 0 0 18px;
+    }
+
+    .about p:last-child {
+      margin-bottom: 0;
+    }
+
+    footer {
+      background: var(--navy);
+      color: var(--white);
+      text-align: center;
+      padding: 24px 20px;
+    }
+
+    @media (max-width: 600px) {
+      header {
+        padding: 65px 20px;
+      }
+
+      header h1 {
+        font-size: 2.3rem;
+      }
+
+      header p {
+        font-size: 1rem;
+      }
+
+      main {
+        padding: 40px 16px;
+      }
+
+      .card {
+        padding: 22px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
+  <header>
+    <h1>MechStudio</h1>
+    <p>Building tomorrow's innovators through hands-on learning, creativity, and engineering.</p>
+  </header>
 
-<h1>MECHSTUDIO</h1>
+  <main>
 
-<h3>Building Tomorrow's Innovators</h3>
+    <section class="section">
+      <h2>Mission Statement</h2>
 
-</header>
+      <div class="card mission">
+        <p>
+          To empower the next generation of innovators, equipping young minds
+          with future-ready skills to design, build, and innovate.
+        </p>
+      </div>
+    </section>
 
-<section>
+    <section class="section about">
+      <h2>About Us</h2>
 
-<div class="card">
+      <div class="card">
+        <p>
+          Our studios are spaces that enable kids to be creative, curious,
+          and practise critical thinking. We are an innovation lab for young
+          minds, equipped with modern tools and workstations to help students
+          get started quickly.
+        </p>
 
-<h2>Mission</h2>
+        <p>
+          Our team of industry professionals in Robotics, Manufacturing, and
+          Engineering offers encouragement, inspiration, and support in a
+          hands-on creative environment.
+        </p>
 
-<p>
-To empower the next generation of innovators,
-equipping young minds with future-ready skills
-to design, build and innovate.
-</p>
+        <p>
+          We give students a taste of DIY building and exposure to an
+          innovator's toolbox, equipping them with future-ready skills and
+          leaving them excited to tinker, innovate, and create.
+        </p>
+      </div>
+    </section>
 
-</div>
+  </main>
 
-<div class="card">
-
-<h2>Our Programs</h2>
-
-<ul>
-
-<li>Electronics</li>
-
-<li>Programming</li>
-
-<li>CAD & 3D Printing</li>
-
-<li>Robotics</li>
-
-</ul>
-
-</div>
-
-<div class="card">
-
-<h2>Grades</h2>
-
-Grades 5–7
-
-<br><br>
-
-Grades 7–9
-
-</div>
-
-</section>
-
-<footer>
-
-© 2026 MechStudio
-
-</footer>
+  <footer>
+    © 2026 MechStudio. All rights reserved.
+  </footer>
 
 </body>
-
 </html>
