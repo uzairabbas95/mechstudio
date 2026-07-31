@@ -3,22 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>MechStudio</title>
+  <meta name="description" content="MechStudio empowers young innovators through hands-on learning in electronics, programming, CAD, 3D printing, and robotics.">
+  <title>MechStudio | Design. Build. Innovate.</title>
 
   <style>
     :root {
-      --navy: #0f2a4a;
-      --blue: #1570ef;
+      --navy: #0d2745;
+      --blue: #1778f2;
+      --cyan: #21c7d9;
       --orange: #ff7a00;
-      --light: #f4f7fa;
       --white: #ffffff;
-      --text: #263238;
-      --muted: #5f6b76;
+      --light: #f5f8fc;
+      --text: #223041;
+      --muted: #667384;
+      --border: #dce5ef;
+      --shadow: 0 18px 45px rgba(13, 39, 69, 0.10);
     }
 
     * {
       box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
     body {
@@ -26,89 +30,538 @@
       font-family: Arial, Helvetica, sans-serif;
       color: var(--text);
       background: var(--white);
-      line-height: 1.6;
+      line-height: 1.65;
     }
 
-    header {
-      background: linear-gradient(135deg, var(--navy), var(--blue));
+    a {
+      color: inherit;
+    }
+
+    .container {
+      width: min(1120px, calc(100% - 40px));
+      margin: 0 auto;
+    }
+
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: rgba(13, 39, 69, 0.96);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .nav-inner {
+      min-height: 72px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .brand {
       color: var(--white);
+      text-decoration: none;
+      font-size: 1.35rem;
+      font-weight: 800;
+      letter-spacing: 1.2px;
+    }
+
+    .brand span {
+      color: var(--cyan);
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .nav-links a {
+      color: #eaf3ff;
+      text-decoration: none;
+      font-size: 0.95rem;
+      font-weight: 600;
+    }
+
+    .nav-links a:hover {
+      color: var(--cyan);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      background:
+        radial-gradient(circle at 85% 20%, rgba(33, 199, 217, 0.28), transparent 28%),
+        radial-gradient(circle at 15% 80%, rgba(23, 120, 242, 0.25), transparent 30%),
+        linear-gradient(135deg, #0d2745 0%, #123d6b 55%, #0d2745 100%);
+      color: var(--white);
+      padding: 110px 0 100px;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+      background-size: 36px 36px;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 850px;
       text-align: center;
-      padding: 90px 20px;
+      margin: 0 auto;
     }
 
-    header h1 {
-      margin: 0 0 12px;
-      font-size: 3.2rem;
-      letter-spacing: 1px;
+    .eyebrow {
+      display: inline-block;
+      padding: 8px 14px;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 999px;
+      color: #dffcff;
+      font-size: 0.9rem;
+      font-weight: 700;
+      letter-spacing: 0.4px;
+      margin-bottom: 20px;
     }
 
-    header p {
-      max-width: 720px;
+    h1 {
+      font-size: clamp(2.7rem, 6vw, 5.2rem);
+      line-height: 1.05;
+      margin: 0 0 22px;
+      letter-spacing: -2px;
+    }
+
+    .hero p {
+      max-width: 760px;
       margin: 0 auto;
       font-size: 1.2rem;
+      color: #dce9f6;
     }
 
-    main {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 60px 20px;
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 34px;
     }
 
-    .section {
-      margin-bottom: 50px;
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      padding: 14px 22px;
+      border-radius: 10px;
+      font-weight: 800;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .section h2 {
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--orange);
+      color: var(--white);
+      box-shadow: 0 10px 24px rgba(255, 122, 0, 0.28);
+    }
+
+    .btn-secondary {
+      border: 1px solid rgba(255,255,255,0.35);
+      color: var(--white);
+      background: rgba(255,255,255,0.06);
+    }
+
+    section {
+      padding: 90px 0;
+    }
+
+    .section-header {
+      text-align: center;
+      max-width: 760px;
+      margin: 0 auto 46px;
+    }
+
+    .section-label {
+      color: var(--blue);
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1.1px;
+      font-size: 0.8rem;
+    }
+
+    h2 {
       color: var(--navy);
-      font-size: 2rem;
-      margin-bottom: 18px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.15;
+      margin: 10px 0 14px;
     }
 
-    .card {
+    .section-header p {
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .mission-panel {
       background: var(--light);
-      border-radius: 14px;
-      padding: 30px;
-      box-shadow: 0 8px 24px rgba(15, 42, 74, 0.08);
     }
 
-    .mission {
-      border-left: 6px solid var(--orange);
+    .mission-card {
+      max-width: 900px;
+      margin: 0 auto;
+      background: var(--white);
+      border-left: 7px solid var(--orange);
+      border-radius: 16px;
+      padding: 36px;
+      box-shadow: var(--shadow);
     }
 
-    .about p {
+    .mission-card p {
+      font-size: 1.45rem;
+      line-height: 1.55;
+      margin: 0;
+      color: var(--navy);
+      font-weight: 700;
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 34px;
+      align-items: stretch;
+    }
+
+    .about-copy,
+    .about-highlight {
+      border-radius: 18px;
+      padding: 34px;
+    }
+
+    .about-copy {
+      background: var(--white);
+      border: 1px solid var(--border);
+      box-shadow: var(--shadow);
+    }
+
+    .about-copy p {
       margin: 0 0 18px;
     }
 
-    .about p:last-child {
+    .about-copy p:last-child {
       margin-bottom: 0;
     }
 
-    footer {
-      background: var(--navy);
+    .about-highlight {
       color: var(--white);
-      text-align: center;
-      padding: 24px 20px;
+      background:
+        linear-gradient(155deg, rgba(23,120,242,0.92), rgba(13,39,69,0.97)),
+        var(--navy);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
 
-    @media (max-width: 600px) {
-      header {
-        padding: 65px 20px;
+    .about-highlight h3 {
+      font-size: 1.8rem;
+      line-height: 1.2;
+      margin: 0 0 16px;
+    }
+
+    .about-highlight p {
+      color: #e5f1fb;
+      margin: 0;
+    }
+
+    .pillars {
+      background: var(--light);
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+    }
+
+    .pillar-card {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 28px 24px;
+      box-shadow: 0 12px 30px rgba(13,39,69,0.06);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .pillar-card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow);
+    }
+
+    .icon {
+      width: 54px;
+      height: 54px;
+      display: grid;
+      place-items: center;
+      border-radius: 14px;
+      background: #eaf3ff;
+      color: var(--blue);
+      font-size: 1.65rem;
+      margin-bottom: 18px;
+    }
+
+    .pillar-card h3 {
+      color: var(--navy);
+      margin: 0 0 10px;
+      font-size: 1.25rem;
+    }
+
+    .pillar-card p {
+      color: var(--muted);
+      margin: 0;
+      font-size: 0.96rem;
+    }
+
+    .programs-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+    }
+
+    .program-card {
+      border-radius: 18px;
+      padding: 34px;
+      color: var(--white);
+      min-height: 280px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .program-card:first-child {
+      background: linear-gradient(135deg, #1778f2, #1455aa);
+    }
+
+    .program-card:last-child {
+      background: linear-gradient(135deg, #0d2745, #1d527f);
+    }
+
+    .program-card h3 {
+      font-size: 2rem;
+      margin: 0 0 10px;
+    }
+
+    .program-card p {
+      color: #e6f0fa;
+    }
+
+    .program-card ul {
+      margin: 20px 0 0;
+      padding-left: 20px;
+    }
+
+
+    .team {
+      background: #081b30;
+    }
+
+    .team .section-label,
+    .team h2 {
+      color: var(--white);
+    }
+
+    .team .section-header p {
+      color: #c9d8e8;
+    }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 28px;
+      max-width: 980px;
+      margin: 0 auto;
+    }
+
+    .team-card {
+      overflow: hidden;
+      background: #102b48;
+      color: var(--white);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 20px;
+      box-shadow: 0 18px 45px rgba(0,0,0,0.24);
+    }
+
+    .team-card img {
+      display: block;
+      width: 100%;
+      height: 560px;
+      object-fit: cover;
+      object-position: center 24%;
+      background: #071524;
+    }
+
+    .team-card-content {
+      padding: 26px;
+    }
+
+    .team-card h3 {
+      margin: 0 0 6px;
+      font-size: 1.65rem;
+    }
+
+    .team-role {
+      margin: 0 0 14px;
+      color: #c9d8e8;
+      font-weight: 700;
+    }
+
+    .team-card a {
+      color: #ffd7a5;
+      text-decoration: none;
+      font-weight: 700;
+      overflow-wrap: anywhere;
+    }
+
+    .team-card a:hover,
+    .contact-box a:hover {
+      text-decoration: underline;
+    }
+
+    .contact-box a {
+      color: #ffd7a5;
+      text-decoration: none;
+    }
+
+    .process {
+      background: var(--navy);
+      color: var(--white);
+    }
+
+    .process h2,
+    .process .section-label {
+      color: var(--white);
+    }
+
+    .process .section-header p {
+      color: #c9d8e8;
+    }
+
+    .process-row {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+    }
+
+    .process-step {
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.14);
+      background: rgba(255,255,255,0.05);
+      border-radius: 14px;
+      padding: 20px 12px;
+    }
+
+    .process-step strong {
+      display: block;
+      color: var(--cyan);
+      margin-bottom: 6px;
+      font-size: 1rem;
+    }
+
+    .contact {
+      background: var(--light);
+    }
+
+    .contact-card {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 30px;
+      background: var(--white);
+      border-radius: 20px;
+      padding: 38px;
+      box-shadow: var(--shadow);
+    }
+
+    .contact-details h3 {
+      color: var(--navy);
+      margin-top: 0;
+      font-size: 1.7rem;
+    }
+
+    .contact-details p {
+      color: var(--muted);
+    }
+
+    .contact-box {
+      background: var(--navy);
+      color: var(--white);
+      border-radius: 16px;
+      padding: 28px;
+    }
+
+    .contact-box p {
+      margin: 0 0 12px;
+      color: #e0ecf7;
+    }
+
+    footer {
+      background: #081b30;
+      color: #cbd7e4;
+      text-align: center;
+      padding: 28px 20px;
+      font-size: 0.92rem;
+    }
+
+    @media (max-width: 900px) {
+      .card-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
 
-      header h1 {
-        font-size: 2.3rem;
+      .about-grid,
+      .contact-card,
+      .team-grid {
+        grid-template-columns: 1fr;
       }
 
-      header p {
-        font-size: 1rem;
+      .team-card img {
+        height: 620px;
       }
 
-      main {
-        padding: 40px 16px;
+      .process-row {
+        grid-template-columns: repeat(3, 1fr);
+      }
+    }
+
+    @media (max-width: 700px) {
+      .nav-links {
+        display: none;
       }
 
-      .card {
-        padding: 22px;
+      .hero {
+        padding: 85px 0 75px;
+      }
+
+      .programs-grid,
+      .card-grid,
+      .team-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .team-card img {
+        height: auto;
+      }
+
+      .process-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      section {
+        padding: 68px 0;
+      }
+
+      .mission-card p {
+        font-size: 1.2rem;
       }
     }
   </style>
@@ -116,50 +569,265 @@
 
 <body>
 
-  <header>
-    <h1>MechStudio</h1>
-    <p>Building tomorrow's innovators through hands-on learning, creativity, and engineering.</p>
+  <nav>
+    <div class="container nav-inner">
+      <a class="brand" href="#home">MECH<span>STUDIO</span></a>
+
+      <div class="nav-links">
+        <a href="#mission">Mission</a>
+        <a href="#about">About</a>
+        <a href="#pillars">Programs</a>
+        <a href="#team">Team</a>
+        <a href="#contact">Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="hero" id="home">
+    <div class="container hero-content">
+      <div class="eyebrow">Hands-on Mechatronics Education for Grades 5–9</div>
+
+      <h1>Design. Build. Innovate.</h1>
+
+      <p>
+        A creative engineering studio where young minds learn electronics,
+        programming, CAD, 3D printing, and robotics through real projects.
+      </p>
+
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#programs">Explore Programs</a>
+        <a class="btn btn-secondary" href="#contact">Register Your Interest</a>
+      </div>
+    </div>
   </header>
 
-  <main>
+  <section class="mission-panel" id="mission">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Our Purpose</div>
+        <h2>Mission Statement</h2>
+      </div>
 
-    <section class="section">
-      <h2>Mission Statement</h2>
-
-      <div class="card mission">
+      <div class="mission-card">
         <p>
           To empower the next generation of innovators, equipping young minds
           with future-ready skills to design, build, and innovate.
         </p>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section about">
-      <h2>About Us</h2>
+  <section id="about">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Who We Are</div>
+        <h2>About MechStudio</h2>
+      </div>
 
-      <div class="card">
+      <div class="about-grid">
+        <div class="about-copy">
+          <p>
+            Our studios are a space that enables kids to be creative, curious
+            and practice critical thinking. We are an innovation lab for young
+            minds equipped with modern tools and workstations to get them
+            started quickly.
+          </p>
+
+          <p>
+            Our team of industry professionals in Robotics, Manufacturing, and
+            Engineering offers encouragement, inspiration, and support in a
+            hands-on creative space.
+          </p>
+
+          <p>
+            We give students a taste of DIY building and exposure to an
+            innovator's toolbox—equipping them with future-ready skills and
+            leaving them excited to tinker, innovate, and create.
+          </p>
+        </div>
+
+        <div class="about-highlight">
+          <h3>More than a robotics class</h3>
+          <p>
+            Students experience the complete engineering journey—from an idea
+            and digital design to electronics, programming, prototyping, testing,
+            and a working robotic system.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="pillars" id="pillars">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">What Students Learn</div>
+        <h2>Four Core Learning Elements</h2>
         <p>
-          Our studios are spaces that enable kids to be creative, curious,
-          and practise critical thinking. We are an innovation lab for young
-          minds, equipped with modern tools and workstations to help students
-          get started quickly.
-        </p>
-
-        <p>
-          Our team of industry professionals in Robotics, Manufacturing, and
-          Engineering offers encouragement, inspiration, and support in a
-          hands-on creative environment.
-        </p>
-
-        <p>
-          We give students a taste of DIY building and exposure to an
-          innovator's toolbox, equipping them with future-ready skills and
-          leaving them excited to tinker, innovate, and create.
+          Each element develops practical skills that come together in complete
+          mechatronics and robotics projects.
         </p>
       </div>
-    </section>
 
-  </main>
+      <div class="card-grid">
+        <article class="pillar-card">
+          <div class="icon">⚡</div>
+          <h3>Electronics</h3>
+          <p>
+            Circuits, components, sensors, motors, wiring, and the fundamentals
+            behind electronic systems.
+          </p>
+        </article>
+
+        <article class="pillar-card">
+          <div class="icon">&lt;/&gt;</div>
+          <h3>Programming</h3>
+          <p>
+            Coding, logic, problem-solving, automation, and controlling real
+            hardware through software.
+          </p>
+        </article>
+
+        <article class="pillar-card">
+          <div class="icon">⬡</div>
+          <h3>CAD & 3D Printing</h3>
+          <p>
+            Designing digital models, creating mechanical parts, and turning
+            ideas into physical prototypes.
+          </p>
+        </article>
+
+        <article class="pillar-card">
+          <div class="icon">🤖</div>
+          <h3>Robotics</h3>
+          <p>
+            Combining mechanical design, electronics, and programming to build,
+            test, and improve working robots.
+          </p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="programs">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Learning Pathways</div>
+        <h2>Programs for Young Innovators</h2>
+      </div>
+
+      <div class="programs-grid">
+        <article class="program-card">
+          <h3>Grades 5–7</h3>
+          <p>
+            A practical introduction to engineering through guided projects and
+            age-appropriate technical challenges.
+          </p>
+
+          <ul>
+            <li>Basic circuits and components</li>
+            <li>Introductory programming</li>
+            <li>Simple CAD and 3D printing</li>
+            <li>Beginner robotics projects</li>
+          </ul>
+        </article>
+
+        <article class="program-card">
+          <h3>Grades 7–9</h3>
+          <p>
+            A deeper engineering experience focused on design thinking,
+            integration, automation, and independent problem-solving.
+          </p>
+
+          <ul>
+            <li>Sensors, motors, and control systems</li>
+            <li>Intermediate programming</li>
+            <li>Mechanical design and prototyping</li>
+            <li>Integrated robotics challenges</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="team" id="team">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">Our Leadership</div>
+        <h2>Meet the MechStudio Team</h2>
+        <p>
+          Industry professionals bringing practical experience in engineering,
+          manufacturing, robotics, and innovation into the learning studio.
+        </p>
+      </div>
+
+      <div class="team-grid">
+        <article class="team-card">
+          <img src="uzair.png" alt="Uzair Abbas, MechStudio leadership team member">
+          <div class="team-card-content">
+            <h3>Uzair Abbas</h3>
+            <p class="team-role">Co-Founder</p>
+            <a href="mailto:uzair@mechstudio.ca">uzair@mechstudio.ca</a>
+          </div>
+        </article>
+
+        <article class="team-card">
+          <img src="omar.png" alt="Omar, MechStudio leadership team member">
+          <div class="team-card-content">
+            <h3>Omar</h3>
+            <p class="team-role">Co-Founder</p>
+            <a href="mailto:omar@mechstudio.ca">omar@mechstudio.ca</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="process">
+    <div class="container">
+      <div class="section-header">
+        <div class="section-label">How Students Work</div>
+        <h2>The MechStudio Innovation Process</h2>
+        <p>
+          Students learn by following the same cycle used by engineers and
+          product developers.
+        </p>
+      </div>
+
+      <div class="process-row">
+        <div class="process-step"><strong>01</strong>Imagine</div>
+        <div class="process-step"><strong>02</strong>Design</div>
+        <div class="process-step"><strong>03</strong>Build</div>
+        <div class="process-step"><strong>04</strong>Program</div>
+        <div class="process-step"><strong>05</strong>Test</div>
+        <div class="process-step"><strong>06</strong>Improve</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="contact-card">
+        <div class="contact-details">
+          <div class="section-label">Get Started</div>
+          <h3>Help your child become a creator of technology.</h3>
+          <p>
+            Contact MechStudio to ask about upcoming classes, schedules,
+            registration, and program availability.
+          </p>
+        </div>
+
+        <div class="contact-box">
+          <p><strong>Website:</strong> <a href="https://mechstudio.ca">mechstudio.ca</a></p>
+          <p><strong>General inquiries:</strong><br><a href="mailto:info@mechstudio.ca">info@mechstudio.ca</a></p>
+          <p><strong>Uzair Abbas:</strong><br><a href="mailto:uzair@mechstudio.ca">uzair@mechstudio.ca</a></p>
+          <p><strong>Omar:</strong><br><a href="mailto:omar@mechstudio.ca">omar@mechstudio.ca</a></p>
+          <p><strong>Programs:</strong> Grades 5–7 and Grades 7–9</p>
+        </div>
+      </div>
+    </div>
+  </section>
 
   <footer>
     © 2026 MechStudio. All rights reserved.
