@@ -7,17 +7,19 @@
   <title>MechStudio | Design. Build. Innovate.</title>
 
   <style>
+    /* You will need to import Modulus Pro here if it is hosted locally or via a CDN */
+    
     :root {
-      --navy: #0d2745;
-      --blue: #1778f2;
-      --cyan: #21c7d9;
-      --orange: #ff7a00;
+      --navy: #263145;
+      --blue: #14a5e6;
+      --green: #3fc361;
+      --orange: rgb(246, 116, 31);
       --white: #ffffff;
       --light: #f5f8fc;
-      --text: #223041;
+      --text: #0f0f12;
       --muted: #667384;
       --border: #dce5ef;
-      --shadow: 0 18px 45px rgba(13, 39, 69, 0.10);
+      --shadow: 0 18px 45px rgba(38, 49, 69, 0.10);
     }
 
     * {
@@ -27,10 +29,14 @@
 
     body {
       margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
       color: var(--text);
       background: var(--white);
       line-height: 1.65;
+    }
+
+    h1, h2, h3, .brand {
+      font-family: "Modulus Pro", "Helvetica Neue", sans-serif;
     }
 
     a {
@@ -46,7 +52,7 @@
       position: sticky;
       top: 0;
       z-index: 100;
-      background: rgba(13, 39, 69, 0.96);
+      background: rgba(38, 49, 69, 0.96);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(255,255,255,0.08);
     }
@@ -60,15 +66,15 @@
     }
 
     .brand {
-      color: var(--white);
+      display: flex;
+      align-items: center;
       text-decoration: none;
-      font-size: 1.35rem;
-      font-weight: 800;
-      letter-spacing: 1.2px;
     }
 
-    .brand span {
-      color: var(--cyan);
+    .brand img {
+      /* Adjust max-height depending on your specific logo file to respect the 65px clear space rules */
+      max-height: 50px; 
+      width: auto;
     }
 
     .nav-links {
@@ -85,16 +91,16 @@
     }
 
     .nav-links a:hover {
-      color: var(--cyan);
+      color: var(--blue);
     }
 
     .hero {
       position: relative;
       overflow: hidden;
       background:
-        radial-gradient(circle at 85% 20%, rgba(33, 199, 217, 0.28), transparent 28%),
-        radial-gradient(circle at 15% 80%, rgba(23, 120, 242, 0.25), transparent 30%),
-        linear-gradient(135deg, #0d2745 0%, #123d6b 55%, #0d2745 100%);
+        radial-gradient(circle at 85% 20%, rgba(63, 195, 97, 0.28), transparent 28%),
+        radial-gradient(circle at 15% 80%, rgba(20, 165, 230, 0.25), transparent 30%),
+        linear-gradient(135deg, #263145 0%, #3a4966 55%, #263145 100%);
       color: var(--white);
       padding: 110px 0 100px;
     }
@@ -168,7 +174,7 @@
     .btn-primary {
       background: var(--orange);
       color: var(--white);
-      box-shadow: 0 10px 24px rgba(255, 122, 0, 0.28);
+      box-shadow: 0 10px 24px rgba(246, 116, 31, 0.28);
     }
 
     .btn-secondary {
@@ -259,7 +265,7 @@
     .about-highlight {
       color: var(--white);
       background:
-        linear-gradient(155deg, rgba(23,120,242,0.92), rgba(13,39,69,0.97)),
+        linear-gradient(155deg, rgba(20, 165, 230, 0.92), rgba(38, 49, 69, 0.97)),
         var(--navy);
       display: flex;
       flex-direction: column;
@@ -292,7 +298,7 @@
       border: 1px solid var(--border);
       border-radius: 16px;
       padding: 28px 24px;
-      box-shadow: 0 12px 30px rgba(13,39,69,0.06);
+      box-shadow: 0 12px 30px rgba(38, 49, 69, 0.06);
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
@@ -341,11 +347,11 @@
     }
 
     .program-card:first-child {
-      background: linear-gradient(135deg, #1778f2, #1455aa);
+      background: linear-gradient(135deg, #14a5e6, #0a7bb5);
     }
 
     .program-card:last-child {
-      background: linear-gradient(135deg, #0d2745, #1d527f);
+      background: linear-gradient(135deg, #263145, #3a4966);
     }
 
     .program-card h3 {
@@ -362,9 +368,8 @@
       padding-left: 20px;
     }
 
-
     .team {
-      background: #081b30;
+      background: #0f0f12;
     }
 
     .team .section-label,
@@ -386,7 +391,7 @@
 
     .team-card {
       overflow: hidden;
-      background: #102b48;
+      background: #263145;
       color: var(--white);
       border: 1px solid rgba(255,255,255,0.1);
       border-radius: 20px;
@@ -399,7 +404,7 @@
       height: 560px;
       object-fit: cover;
       object-position: center 24%;
-      background: #071524;
+      background: #0f0f12;
     }
 
     .team-card-content {
@@ -464,7 +469,7 @@
 
     .process-step strong {
       display: block;
-      color: var(--cyan);
+      color: var(--green);
       margin-bottom: 6px;
       font-size: 1rem;
     }
@@ -506,7 +511,7 @@
     }
 
     footer {
-      background: #081b30;
+      background: #0f0f12;
       color: #cbd7e4;
       text-align: center;
       padding: 28px 20px;
@@ -571,7 +576,10 @@
 
   <nav>
     <div class="container nav-inner">
-      <a class="brand" href="#home">MECH<span>STUDIO</span></a>
+      <!-- Ensure the src attribute matches your uploaded logo filename exactly -->
+      <a class="brand" href="#home">
+        <img src="logo.png" alt="Mech Studio Logo">
+      </a>
 
       <div class="nav-links">
         <a href="#mission">Mission</a>
@@ -749,7 +757,6 @@
       </div>
     </div>
   </section>
-
 
   <section class="team" id="team">
     <div class="container">
