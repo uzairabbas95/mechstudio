@@ -15,8 +15,8 @@
     :root {
       /* Official Brand Colors */
       --navy: #263145;
-      --orange: #f6741f;
-      --green: #3fc361;
+      --orange: #f6761f;
+      --green: #3fc161;
       --blue: #14a5e6;
       --black: #0f0f12;
       --white: #ffffff;
@@ -40,7 +40,7 @@
     }
 
     h1, h2, h3, .nav-links a, .btn, .eyebrow, .process-step strong {
-      font-family: "Montserrat", sans-serif;
+      font-family: "Modulus Pro", "Montserrat", "Arial Rounded MT Bold", sans-serif;
       margin-top: 0;
     }
 
@@ -72,7 +72,7 @@
 
     .brand img {
       /* Since the image is cropped, this height directly controls the logo size */
-      height: 150px; 
+      height: 92px; 
       display: block;
       transition: transform 0.2s ease;
     }
@@ -103,9 +103,10 @@
     .hero {
       position: relative;
       background-color: var(--navy);
-      background-image: 
-        linear-gradient(to right, rgba(38, 49, 69, 0.95) 30%, rgba(38, 49, 69, 0.4) 100%),
-        url('hero-bg.jpg'); 
+      background-image:
+        radial-gradient(circle at 82% 22%, rgba(20,165,230,.35) 0 10%, transparent 32%),
+        radial-gradient(circle at 18% 82%, rgba(63,193,97,.24) 0 12%, transparent 34%),
+        linear-gradient(135deg, #263145 0%, #1d2b42 52%, #0a7bb5 145%); 
       background-size: cover;
       background-position: center;
       color: var(--white);
@@ -551,7 +552,7 @@
     <div class="container nav-inner">
       <a class="brand" href="#home">
         <!-- Logo file is set to the name you specified -->
-        <img src="Gemini_Generated_Image_j2xh9rj2xh9rj2xh.png" alt="Mech Studio Logo">
+        <img src="mechstudio-logo.png" alt="Mech Studio Logo">
       </a>
 
       <div class="nav-links">
@@ -563,6 +564,7 @@
       </div>
     </div>
   </nav>
+  <div style="height:5px;background:linear-gradient(90deg,#3fc161 0 33%,#f6761f 33% 66%,#14a5e6 66% 100%);"></div>
 
   <header class="hero" id="home">
     <div class="hero-shape-green"></div>
@@ -751,7 +753,7 @@
         </article>
 
         <article class="team-card">
-          <img src="omar.png" alt="Omar, MechStudio leadership team member">
+          <img src="omar.png" alt="Omar Ceen, Mech Studio leadership team member">
           <div class="team-card-content">
             <h3>Omar Ceen</h3>
             <p class="team-role">Co-Founder</p>
