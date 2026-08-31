@@ -6,10 +6,10 @@
   <meta name="description" content="MechStudio empowers young innovators through hands-on learning in electronics, programming, CAD, 3D printing, and robotics.">
   <title>MechStudio | Design. Build. Innovate.</title>
 
-  <!-- Google Fonts acting as a placeholder for Modulus Pro (Montserrat) and loading Helvetica Neue -->
+  <!-- Google Fonts placeholder for Modulus Pro (Montserrat) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&family=Helvetica+Neue:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
     :root {
@@ -40,7 +40,7 @@
     }
 
     h1, h2, h3, .nav-links a, .btn, .eyebrow, .process-step strong {
-      font-family: "Modulus Pro", "Montserrat", sans-serif;
+      font-family: "Montserrat", sans-serif;
       margin-top: 0;
     }
 
@@ -67,14 +67,18 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 15px 0; /* Clear space accommodated by logo size */
+      padding: 20px 0; 
     }
 
-  .brand img {
-      height: 60px; /* This keeps the nav bar from getting too tall */
+    .brand img {
+      /* Since the image is cropped, this height directly controls the logo size */
+      height: 55px; 
       display: block;
-      transform: scale(2); /* This visually magnifies the image by 180% */
-      transform-origin: center left; /* Keeps it anchored to the left side */
+      transition: transform 0.2s ease;
+    }
+
+    .brand img:hover {
+      transform: scale(1.05); /* Adds a tiny, sleek zoom effect when hovered */
     }
 
     .nav-links {
@@ -99,7 +103,6 @@
     .hero {
       position: relative;
       background-color: var(--navy);
-      /* REPLACE 'hero-bg.jpg' with your actual background image filename */
       background-image: 
         linear-gradient(to right, rgba(38, 49, 69, 0.95) 30%, rgba(38, 49, 69, 0.4) 100%),
         url('hero-bg.jpg'); 
@@ -110,7 +113,6 @@
       overflow: hidden;
     }
 
-    /* Geometric Brand Accents (mimicking the social media banners) */
     .hero-shape-green {
       position: absolute;
       bottom: -10%;
@@ -291,7 +293,6 @@
       position: relative;
     }
     
-    /* Small angled accent */
     .about-highlight::after {
       content: "";
       position: absolute;
@@ -529,7 +530,7 @@
     @media (max-width: 1024px) {
       .card-grid { grid-template-columns: repeat(2, 1fr); }
       .process-row { grid-template-columns: repeat(3, 1fr); }
-      .hero-shape-green, .hero-shape-blue { display: none; } /* Hide large shapes on smaller screens */
+      .hero-shape-green, .hero-shape-blue { display: none; }
     }
 
     @media (max-width: 768px) {
@@ -549,6 +550,7 @@
   <nav>
     <div class="container nav-inner">
       <a class="brand" href="#home">
+        <!-- Logo file is set to the name you specified -->
         <img src="Gemini_Generated_Image_j2xh9rj2xh9rj2xh.png" alt="Mech Studio Logo">
       </a>
 
