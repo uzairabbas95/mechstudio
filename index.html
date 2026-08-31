@@ -543,6 +543,161 @@
       .about-copy, .about-highlight, .contact-details, .contact-box { padding: 40px; }
       .hero { padding: 120px 0 100px; }
     }
+  
+    /* --- 3D BRAND EXPERIENCE --- */
+    body { overflow-x: hidden; }
+
+    .hero {
+      min-height: 82vh;
+      display: flex;
+      align-items: center;
+      background-image:
+        linear-gradient(90deg, rgba(38,49,69,.96) 0%, rgba(38,49,69,.78) 42%, rgba(38,49,69,.18) 76%, rgba(38,49,69,.08) 100%),
+        url('hero-bg.jpg');
+      background-position: center;
+      background-size: cover;
+      perspective: 1200px;
+    }
+
+    .hero-content {
+      background: rgba(38,49,69,.18);
+      backdrop-filter: blur(2px);
+      border-left: 4px solid var(--orange);
+      padding: 34px 38px;
+      border-radius: 0 18px 18px 0;
+      box-shadow: 0 28px 70px rgba(15,15,18,.28);
+      transform: translateZ(30px);
+    }
+
+    .brand img {
+      filter: drop-shadow(0 10px 18px rgba(38,49,69,.14));
+    }
+
+    .pillar-card, .program-card, .team-card, .contact-card, .about-grid {
+      box-shadow: 0 18px 45px rgba(38,49,69,.10);
+    }
+
+    .pillar-card {
+      position: relative;
+      overflow: hidden;
+      transform-style: preserve-3d;
+      transition: transform .35s ease, box-shadow .35s ease;
+      border: 1px solid rgba(38,49,69,.06);
+    }
+
+    .pillar-card:nth-child(1) { border-top: 5px solid var(--orange); }
+    .pillar-card:nth-child(2) { border-top: 5px solid var(--blue); }
+    .pillar-card:nth-child(3) { border-top: 5px solid var(--green); }
+    .pillar-card:nth-child(4) { border-top: 5px solid var(--navy); }
+
+    .pillar-card:hover {
+      transform: perspective(900px) rotateX(4deg) rotateY(-4deg) translateY(-10px);
+      box-shadow: 0 28px 65px rgba(38,49,69,.18);
+    }
+
+    .pillar-card .icon {
+      transform: translateZ(35px);
+    }
+
+    .program-card {
+      transition: transform .35s ease, box-shadow .35s ease;
+      transform-style: preserve-3d;
+    }
+
+    .program-card:hover {
+      transform: perspective(1000px) rotateX(2deg) translateY(-8px);
+      box-shadow: 0 30px 70px rgba(38,49,69,.15);
+    }
+
+    .deliverable {
+      background: linear-gradient(180deg, #ffffff 0%, #f5f8fc 100%);
+      overflow: hidden;
+    }
+
+    .deliverable-grid {
+      display: grid;
+      grid-template-columns: 1.12fr .88fr;
+      gap: 58px;
+      align-items: center;
+    }
+
+    .deliverable-visual {
+      perspective: 1300px;
+    }
+
+    .deliverable-frame {
+      position: relative;
+      border-radius: 22px;
+      padding: 12px;
+      background: #fff;
+      box-shadow: 0 35px 80px rgba(38,49,69,.22);
+      transform: rotateY(5deg) rotateX(2deg);
+      transition: transform .45s ease;
+    }
+
+    .deliverable-frame:hover {
+      transform: rotateY(0deg) rotateX(0deg) translateY(-6px);
+    }
+
+    .deliverable-frame::before {
+      content: "";
+      position: absolute;
+      inset: 18px -18px -18px 18px;
+      border-radius: 22px;
+      background: linear-gradient(135deg, var(--green), var(--blue));
+      z-index: -1;
+      opacity: .75;
+    }
+
+    .deliverable-frame img {
+      display: block;
+      width: 100%;
+      border-radius: 14px;
+    }
+
+    .deliverable-copy h2 {
+      margin-top: 10px;
+    }
+
+    .deliverable-copy p {
+      font-size: 1.15rem;
+      color: #4a5568;
+    }
+
+    .deliverable-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin: 26px 0 30px;
+    }
+
+    .deliverable-tags span {
+      background: #fff;
+      border: 1px solid #dfe7ef;
+      border-radius: 999px;
+      padding: 9px 14px;
+      color: var(--navy);
+      font-weight: 700;
+      font-size: .9rem;
+      box-shadow: 0 7px 18px rgba(38,49,69,.07);
+    }
+
+    .brand-band {
+      display: grid;
+      grid-template-columns: repeat(4,1fr);
+      min-height: 12px;
+    }
+    .brand-band span:nth-child(1){background:var(--orange)}
+    .brand-band span:nth-child(2){background:var(--green)}
+    .brand-band span:nth-child(3){background:var(--blue)}
+    .brand-band span:nth-child(4){background:var(--navy)}
+
+    @media (max-width: 900px) {
+      .deliverable-grid { grid-template-columns: 1fr; }
+      .deliverable-frame { transform: none; }
+      .hero-content { border-radius: 0 14px 14px 0; }
+    }
+
   </style>
 </head>
 
@@ -559,11 +714,13 @@
         <a href="#mission">Mission</a>
         <a href="#about">About</a>
         <a href="#pillars">Programs</a>
+        <a href="#deliverables">Deliverables</a>
         <a href="#team">Team</a>
         <a href="#contact">Contact</a>
       </div>
     </div>
   </nav>
+  <div class="brand-band" aria-hidden="true"><span></span><span></span><span></span><span></span></div>
   <div style="height:5px;background:linear-gradient(90deg,#3fc161 0 33%,#f6761f 33% 66%,#14a5e6 66% 100%);"></div>
 
   <header class="hero" id="home">
@@ -727,6 +884,42 @@
             <li>Integrated robotics challenges</li>
           </ul>
         </article>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="deliverable" id="deliverables">
+    <div class="container">
+      <div class="deliverable-grid">
+        <div class="deliverable-visual">
+          <div class="deliverable-frame">
+            <img src="hero-bg.jpg" alt="Mech Studio robotics learning kit and completed robot in a modern engineering studio">
+          </div>
+        </div>
+
+        <div class="deliverable-copy">
+          <span class="section-label">Project Deliverable</span>
+          <h2>From Components to a Working Robot</h2>
+          <p>
+            Students bring the four Mech Studio learning elements together in a tangible,
+            hands-on build. They work with real components, mechanical parts, electronics,
+            programming, and design thinking to create a functional robotic project.
+          </p>
+          <p>
+            The finished build represents the complete Mech Studio experience:
+            imagine, design, build, program, test, and improve.
+          </p>
+
+          <div class="deliverable-tags">
+            <span>Electronics</span>
+            <span>Programming</span>
+            <span>CAD &amp; 3D Printing</span>
+            <span>Robotics</span>
+          </div>
+
+          <a class="btn btn-primary" href="#programs">Explore the Programs</a>
+        </div>
       </div>
     </div>
   </section>
