@@ -145,6 +145,12 @@ section{padding:100px 0} .head{max-width:850px;margin-bottom:50px} h2{font-size:
 @media(max-width:620px){.schedule-grid{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.form-grid label.full{grid-column:auto}.enroll-panel{padding:24px 18px}}
 
 .cohort-name{margin-top:3px;font:800 .86rem Montserrat,Arial,sans-serif;color:#596775}.learning-strip{display:flex;gap:6px;flex-wrap:wrap;margin:16px 0 2px}.learning-strip span{font:800 .58rem Montserrat,Arial,sans-serif;padding:6px 8px;border-radius:999px;background:#f1f8fc;color:#31647d;border:1px solid #d9ebf4}
+
+/* Schedule ordering/layout v3 */
+@media(min-width:1200px){
+  .schedule-grid{grid-template-columns:repeat(4,1fr)}
+}
+
 </style>
 </head>
 <body>
@@ -305,7 +311,8 @@ async function loadClasses(){
     .select('*')
     .eq('is_published',true)
     .eq('registration_open',true)
-    .order('course_level',{ascending:true});
+    .order('course_level',{ascending:true})
+    .order('display_order',{ascending:true});
   if(error){
     console.error(error);
     scheduleGrid.innerHTML='<div class="schedule-loading">We could not load the schedule right now. Please contact info@mechstudio.ca.</div>';
