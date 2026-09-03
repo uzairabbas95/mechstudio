@@ -166,6 +166,25 @@ section{padding:100px 0} .head{max-width:850px;margin-bottom:50px} h2{font-size:
 .choice strong{display:block;font-family:Montserrat,Arial,sans-serif}.choice small{color:#6f7c88}
 .enroll-big{width:100%;margin-top:18px;border:0;border-radius:12px;padding:14px;background:var(--orange);color:#fff;font:900 .78rem Montserrat,Arial,sans-serif;cursor:pointer}
 @media(max-width:850px){.calendar-shell{grid-template-columns:1fr}.schedule-side{position:static}.cal-day{min-height:72px}}
+
+/* Header alignment fix: keep Enroll Now at far right */
+@media (min-width: 851px){
+  .nav-inner{
+    display:grid !important;
+    grid-template-columns:220px 1fr 160px !important;
+    align-items:center !important;
+    width:100% !important;
+  }
+  .logo-shell{grid-column:1 !important;justify-self:start !important;}
+  .links{grid-column:2 !important;justify-self:center !important;}
+  .nav-cta{
+    grid-column:3 !important;
+    justify-self:end !important;
+    margin-left:0 !important;
+    white-space:nowrap !important;
+  }
+}
+
 </style></head><body><nav><div class="wrap nav-inner">
 <a class="logo-shell" href="index.html"><img src="mechstudio-logo-new.jpg" alt="Mech Studio"></a>
 <div class="links">
