@@ -144,6 +144,7 @@ section{padding:100px 0} .head{max-width:850px;margin-bottom:50px} h2{font-size:
 @media(max-width:900px){.schedule-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:620px){.schedule-grid{grid-template-columns:1fr}.form-grid{grid-template-columns:1fr}.form-grid label.full{grid-column:auto}.enroll-panel{padding:24px 18px}}
 
+.cohort-name{margin-top:3px;font:800 .86rem Montserrat,Arial,sans-serif;color:#596775}.learning-strip{display:flex;gap:6px;flex-wrap:wrap;margin:16px 0 2px}.learning-strip span{font:800 .58rem Montserrat,Arial,sans-serif;padding:6px 8px;border-radius:999px;background:#f1f8fc;color:#31647d;border:1px solid #d9ebf4}
 </style>
 </head>
 <body>
@@ -209,16 +210,11 @@ section{padding:100px 0} .head{max-width:850px;margin-bottom:50px} h2{font-size:
     <div class="head schedule-head">
       <div class="label">Upcoming Programs</div>
       <h2>Choose your class.</h2>
-      <p class="lead">Live course dates, available seats and enrollment status are loaded from our registration system.</p>
+      <p class="lead">Choose the weekly schedule that works for your family. Each enrollment reserves the complete course pathway and live seat availability updates automatically.</p>
     </div>
 
     <div class="schedule-toolbar">
-      <div class="schedule-filter">
-        <button class="filter-btn active" data-filter="all">All Programs</button>
-        <button class="filter-btn" data-filter="5-7">Grades 5–7</button>
-        <button class="filter-btn" data-filter="7-9">Grades 7–9</button>
-      </div>
-      <div class="schedule-status" id="scheduleStatus">Loading upcoming classes…</div>
+      <div class="schedule-filter"><button class="filter-btn active" data-filter="all">All Available Cohorts</button></div><div class="schedule-status" id="scheduleStatus">Loading upcoming classes…</div>
     </div>
 
     <div class="schedule-grid" id="scheduleGrid">
@@ -278,8 +274,8 @@ function resetGame(){x=24;y=100;moves=0;score=0;hasBattery=false;robot.style.lef
    2) Replace the two PUBLIC values below.
    Never put a Supabase service-role key or payment secret here.
    ========================================================= */
-const SUPABASE_URL = 'YOUR_SUPABASE_PROJECT_URL';
-const SUPABASE_ANON_KEY = 'YOUR_SUPABASE_ANON_KEY';
+const SUPABASE_URL = 'https://xmslgxlezofyaimynbgy.supabase.co';
+const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inhtc2xneGxlem9meWFpbXluYmd5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgyNDk4NTgsImV4cCI6MjEwMzgyNTg1OH0.R4irGkF33rTBQHK4G6W4CA4fgAXkx4P6K9KTVc-tYw8';
 const PAYMENT_FUNCTION_URL = ''; // Add later: secure Edge Function URL that creates Helcim/Square checkout.
 
 const scheduleGrid = document.getElementById('scheduleGrid');
@@ -292,6 +288,7 @@ function money(v){ return new Intl.NumberFormat('en-CA',{style:'currency',curren
 function niceDate(v){ if(!v) return ''; return new Date(v+'T12:00:00').toLocaleDateString('en-CA',{month:'short',day:'numeric',year:'numeric'}); }
 
 async function initSchedule(){
+  console.log('Connecting Mech Studio scheduling to Supabase:', SUPABASE_URL);
   if(SUPABASE_URL.startsWith('YOUR_') || SUPABASE_ANON_KEY.startsWith('YOUR_')){
     scheduleGrid.innerHTML = '<div class="schedule-loading"><strong>Schedule system is ready to connect.</strong><br>Add your Supabase URL and anon key in index.html after completing the setup instructions.</div>';
     scheduleStatus.textContent = 'Database connection required';
@@ -307,8 +304,8 @@ async function loadClasses(){
     .from('class_availability')
     .select('*')
     .eq('is_published',true)
-    .gte('start_date',new Date().toISOString().slice(0,10))
-    .order('start_date',{ascending:true});
+    .eq('registration_open',true)
+    .order('course_level',{ascending:true});
   if(error){
     console.error(error);
     scheduleGrid.innerHTML='<div class="schedule-loading">We could not load the schedule right now. Please contact info@mechstudio.ca.</div>';
@@ -321,27 +318,19 @@ async function loadClasses(){
 }
 
 function renderClasses(){
-  const rows=mechClasses.filter(c=>currentFilter==='all'||String(c.grade_band)===currentFilter);
-  if(!rows.length){scheduleGrid.innerHTML='<div class="schedule-loading">No classes are currently published for this selection.</div>';return;}
-  scheduleGrid.innerHTML=rows.map(c=>{
-    const left=Math.max(0,Number(c.seats_remaining||0));
-    const full=left<=0;
-    const seatClass=full?'full':left<=3?'low':'';
-    const seatText=full?'Course Full':`${left} spot${left===1?'':'s'} left`;
-    return `<article class="class-card" data-grade="${c.grade_band}">
-      <div class="class-top"><div><div class="class-tag">${c.grade_band?'Grades '+c.grade_band:'Mech Studio Program'}</div><h3>${escapeHtml(c.course_name)}</h3></div><span class="seat-pill ${seatClass}">${seatText}</span></div>
-      <div class="class-meta">
-        <span>📅 ${niceDate(c.start_date)}${c.end_date?' – '+niceDate(c.end_date):''}</span>
-        <span>🕒 ${escapeHtml(c.day_of_week||'')} · ${escapeHtml(c.start_time_display||'')} ${c.end_time_display?'– '+escapeHtml(c.end_time_display):''}</span>
-        <span>📍 ${escapeHtml(c.location||'Mech Studio')}</span>
-        ${c.instructor_name?`<span>👤 ${escapeHtml(c.instructor_name)}</span>`:''}
-      </div>
-      <div class="class-bottom"><div class="class-price"><strong>${money(c.price_cad)}</strong><small>complete program</small></div>
-      <button class="enroll-btn" ${full?'disabled':''} onclick="openEnrollModal('${c.id}')">${full?'Full':'Enroll Now'}</button></div>
-    </article>`;
-  }).join('');
+ const rows=mechClasses;
+ if(!rows.length){scheduleGrid.innerHTML='<div class="schedule-loading">New Mech Studio course dates are coming soon.</div>';return;}
+ scheduleGrid.innerHTML=rows.map(c=>{
+  const left=Math.max(0,Number(c.seats_remaining||0)),full=left<=0,seatClass=full?'full':left<=3?'low':'';
+  const seatText=full?'Course Full':`${left} spot${left===1?'':'s'} left`;
+  const dates=(c.start_date&&c.end_date)?`${niceDate(c.start_date)} – ${niceDate(c.end_date)}`:(c.start_date?`Starts ${niceDate(c.start_date)}`:(c.term_name||'Upcoming Term'));
+  const areas=Array.isArray(c.learning_areas)?c.learning_areas:[];
+  return `<article class="class-card"><div class="class-top"><div><div class="class-tag">Course ${c.course_level} · Grades ${escapeHtml(c.grade_band||'5–9')}</div><h3>${escapeHtml(c.course_name)}</h3><div class="cohort-name">${escapeHtml(c.cohort_name||'')}</div></div><span class="seat-pill ${seatClass}">${seatText}</span></div>
+  ${areas.length?`<div class="learning-strip">${areas.map(a=>`<span>${escapeHtml(a)}</span>`).join('')}</div>`:''}
+  <div class="class-meta"><span>📅 ${escapeHtml(dates)}</span><span>🕒 ${escapeHtml(c.schedule_display||'Schedule to be announced')}</span><span>📍 ${escapeHtml(c.location||'Mech Studio')}</span>${c.instructor_name?`<span>👤 ${escapeHtml(c.instructor_name)}</span>`:''}</div>
+  <div class="class-bottom"><div class="class-price"><strong>${money(c.price_cad)}</strong><small>complete course</small></div><button class="enroll-btn" ${full?'disabled':''} onclick="openEnrollModal('${c.id}')">${full?'Full':'Enroll Now'}</button></div></article>`;
+ }).join('');
 }
-
 function escapeHtml(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));}
 
 document.querySelectorAll('.filter-btn').forEach(btn=>btn.addEventListener('click',()=>{
@@ -352,7 +341,7 @@ document.querySelectorAll('.filter-btn').forEach(btn=>btn.addEventListener('clic
 function openEnrollModal(id){
   const c=mechClasses.find(x=>String(x.id)===String(id)); if(!c)return;
   document.getElementById('classId').value=c.id;
-  document.getElementById('modalCourse').textContent=`${c.course_name} · ${niceDate(c.start_date)} · ${c.day_of_week} ${c.start_time_display||''}`;
+  document.getElementById('modalCourse').textContent=`${c.course_name} · ${c.cohort_name} · ${c.schedule_display||'Schedule to be announced'} · ${money(c.price_cad)}`;
   document.getElementById('formMessage').textContent='';
   document.getElementById('enrollModal').classList.add('open');
   document.getElementById('enrollModal').setAttribute('aria-hidden','false');
