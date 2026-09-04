@@ -189,13 +189,39 @@ section{padding:100px 0} .head{max-width:850px;margin-bottom:50px} h2{font-size:
 /* active navigation */
 .links a[aria-current="page"]{color:var(--blue)}
 
-</style></head><body><nav><div class="wrap nav-inner">
+
+/* v3 visual refresh */
+body{font-family:Arial,Helvetica,sans-serif}
+h1,h2,h3,.label,.links,.btn,.nav-cta{font-family:Montserrat,Arial,sans-serif}
+.hero-copy h1,.page-hero h1{font-family:Arial Black,Montserrat,Arial,sans-serif;letter-spacing:-.045em}
+section{padding-top:92px;padding-bottom:92px}
+.full-band{width:100%;padding:42px 0;background:linear-gradient(90deg,#f7fbfd,#fff,#f8fcf7);border-top:1px solid #e7eef2;border-bottom:1px solid #e7eef2}
+.skill-rail{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:1px solid #e0e8ed;border-radius:22px;overflow:hidden;background:#fff;box-shadow:0 18px 50px rgba(38,49,69,.07)}
+.skill-rail div{padding:26px 20px;border-right:1px solid #e5ecf0}.skill-rail div:last-child{border-right:0}
+.skill-rail b{display:block;font-size:1.7rem;margin-bottom:7px}.skill-rail strong{font:800 .8rem Montserrat,Arial,sans-serif}
+.skill-rail span{display:block;color:#74818d;font-size:.8rem;margin-top:6px}
+@media(max-width:800px){.skill-rail{grid-template-columns:1fr}.skill-rail div{border-right:0;border-bottom:1px solid #e5ecf0}}
+
+</style>
+<style>
+.game-tabs{display:flex;gap:10px;flex-wrap:wrap;margin:25px 0}.game-tabs button,.mini-controls button,.gear-options button,.circuit-line button{border:1px solid #d8e3ea;background:#fff;border-radius:12px;padding:12px 16px;font:800 .75rem Montserrat,Arial,sans-serif;cursor:pointer}.game-tabs button:hover,.mini-controls button:hover,.gear-options button:hover,.circuit-line button:hover{background:#263145;color:#fff}
+.mini-game{display:none;border:1px solid #dfe8ee;border-radius:24px;padding:30px;background:linear-gradient(145deg,#fff,#f5fbff);box-shadow:0 20px 55px rgba(38,49,69,.09);min-height:360px}.mini-game.active{display:block}.mini-game h3{font-size:2rem}
+.mini-board{height:250px;position:relative;border-radius:18px;background:linear-gradient(rgba(20,165,230,.09) 1px,transparent 1px),linear-gradient(90deg,rgba(20,165,230,.09) 1px,transparent 1px),#fbfdff;background-size:50px 50px;border:1px solid #dce8ef;margin:20px 0}.rr{position:absolute;font-size:34px}.robotpiece{left:5%;top:70%}.batterypiece{left:48%;top:25%}.goalpiece{right:8%;top:65%}.mini-controls{text-align:center}.mini-controls button{width:48px;height:45px;padding:0;margin:3px}.circuit-line{display:flex;align-items:center;justify-content:center;gap:18px;min-height:210px;font-size:2rem;flex-wrap:wrap}.gear-options{display:flex;gap:12px;flex-wrap:wrap}.gear-stage{font-size:5rem;display:flex;justify-content:center;gap:35px;align-items:center;min-height:200px}.gear-spin{display:inline-block;animation:spin 4s linear infinite}@keyframes spin{to{transform:rotate(360deg)}} 
+</style>
+</head><body><nav><div class="wrap nav-inner">
 <a class="logo-shell" href="index.html"><img src="mechstudio-logo-new.jpg" alt="Mech Studio"></a>
 <div class="links">
 <a href="index.html">Home</a><a href="courses.html">Courses</a><a href="schedule.html">Schedule</a>
-<a href="about.html">About</a><a href="team.html">Leadership</a><a href="game.html" aria-current="page">Game</a><a href="contact.html">Contact</a>
+<a href="index.html#about">About</a><a href="index.html#team">Leadership</a><a href="game.html" aria-current="page">Game</a><a href="contact.html">Contact</a>
 </div><a class="nav-cta" href="schedule.html">Enroll Now</a></div></nav>
-<div class="brandbar"><span></span><span></span><span></span><span></span></div><header class="page-hero"><div class="wrap"><div class="label">Play & Learn</div><h1>Think. Move.<br><span>Solve.</span></h1><p>Try the Mech Studio robot challenge.</p></div></header><section class="game" id="game"><div class="wrap"><div class="head"><div class="label">Play & Learn</div><h2>Robo Challenge.</h2><p class="lead">A small interactive challenge gives visitors something to do instead of only scrolling.</p></div><div class="game-shell"><div class="game-intro"><h3>Power the robot.</h3><p>Use the arrows. Collect the battery first, then reach the goal robot.</p><div class="controls"><span class="blank"></span><button onclick="moveRobot(0,-1)">↑</button><span class="blank"></span><button onclick="moveRobot(-1,0)">←</button><button onclick="resetGame()">⟳</button><button onclick="moveRobot(1,0)">→</button><span class="blank"></span><button onclick="moveRobot(0,1)">↓</button><span class="blank"></span></div><div class="message" id="message">Collect the battery ⚡</div></div><div class="board" id="board"><div class="robot" id="robot">🤖</div><div class="battery" id="battery">🔋</div><div class="goal" id="goal">🤖</div><div class="obstacle" style="left:46%;top:35px"></div><div class="obstacle" style="left:51%;top:170px"></div><div class="obstacle" style="left:70%;top:25px"></div></div><div class="scorebox"><small>LEVEL</small><strong id="level">1</strong><small>SCORE</small><strong id="score">0</strong><small>MOVES</small><strong id="moves">0</strong></div></div></div></section><footer class="site-footer"><div class="wrap"><strong>MECH STUDIO</strong><span>Design. Build. Innovate.</span><a href="mailto:info@mechstudio.ca">info@mechstudio.ca</a></div></footer>
+<div class="brandbar"><span></span><span></span><span></span><span></span></div><header class="page-hero"><div class="wrap"><div class="label">Play & Learn</div><h1>Think. Move.<br><span>Solve.</span></h1><p>Try the Mech Studio robot challenge.</p></div></header>
+<section><div class="wrap"><div class="head"><div class="label">Mech Arcade</div><h2>Three quick challenges.</h2><p class="lead">Play with logic, electronics and engineering ideas.</p></div>
+<div class="game-tabs"><button onclick="showMini(0)">🤖 Robot Rescue</button><button onclick="showMini(1)">⚡ Circuit Builder</button><button onclick="showMini(2)">⚙ Gear Match</button></div>
+<div class="mini-game active" id="mini0"><h3>Robot Rescue</h3><p>Move the robot to collect the battery, then reach the lab.</p><div class="mini-board"><div id="rrRobot" class="rr robotpiece">🤖</div><div id="rrBattery" class="rr batterypiece">🔋</div><div class="rr goalpiece">🏁</div></div><div class="mini-controls"><button onclick="rrMove(0,-1)">↑</button><br><button onclick="rrMove(-1,0)">←</button><button onclick="rrReset()">↻</button><button onclick="rrMove(1,0)">→</button><br><button onclick="rrMove(0,1)">↓</button></div><strong id="rrMsg">Collect the battery.</strong></div>
+<div class="mini-game" id="mini1"><h3>Circuit Builder</h3><p>Close both switches to power the LED.</p><div class="circuit-line"><span>🔋</span><button id="sw1" onclick="toggleSwitch(1)">SW1 OFF</button><span>━━</span><button id="sw2" onclick="toggleSwitch(2)">SW2 OFF</button><span>━━</span><span id="led">⚫</span></div><strong id="circuitMsg">Complete the circuit.</strong></div>
+<div class="mini-game" id="mini2"><h3>Gear Match</h3><p>Choose the gear that makes the output rotate slower with more torque.</p><div class="gear-options"><button onclick="gearPick(false)">⚙ Small Gear</button><button onclick="gearPick(true)">⚙️ Large Gear</button><button onclick="gearPick(false)">⚙ Same Size</button></div><div class="gear-stage"><span class="gear-spin">⚙️</span><span>→</span><span id="outputGear">⚙️</span></div><strong id="gearMsg">Pick an output gear.</strong></div>
+</div></section>
+<footer class="site-footer"><div class="wrap"><strong>MECH STUDIO</strong><span>Design. Build. Innovate.</span><a href="mailto:info@mechstudio.ca">info@mechstudio.ca</a></div></footer>
 <script>
 const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.12});
 document.querySelectorAll('section,.reveal-target').forEach(el=>{el.classList.add('reveal');observer.observe(el)});
@@ -207,4 +233,12 @@ function r(el){return el.getBoundingClientRect()}
 function hit(a,b){return !(a.right<b.left||a.left>b.right||a.bottom<b.top||a.top>b.bottom)}
 function moveRobot(dx,dy){const s=24;x=Math.max(0,Math.min(board.clientWidth-56,x+dx*s));y=Math.max(0,Math.min(board.clientHeight-56,y+dy*s));robot.style.left=x+"px";robot.style.top=y+"px";moves++;document.getElementById("moves").textContent=moves;if(!hasBattery&&hit(r(robot),r(battery))){hasBattery=true;battery.style.display="none";score+=500;document.getElementById("score").textContent=score;message.textContent="Battery collected! Reach the goal 🤖";}if(hit(r(robot),r(goal))){if(hasBattery){score+=750;document.getElementById("score").textContent=score;document.getElementById("level").textContent="2";message.textContent="Level complete! Great job 🎉";}else message.textContent="Battery first ⚡";}}
 function resetGame(){x=24;y=100;moves=0;score=0;hasBattery=false;robot.style.left=x+"px";robot.style.top=y+"px";battery.style.display="grid";document.getElementById("moves").textContent="0";document.getElementById("score").textContent="0";document.getElementById("level").textContent="1";message.textContent="Collect the battery ⚡";}
-</script></body></html>
+</script>
+<script>
+function showMini(n){document.querySelectorAll('.mini-game').forEach((x,i)=>x.classList.toggle('active',i===n))}
+let rx=5,ry=70,got=false;function rrMove(dx,dy){rx=Math.max(2,Math.min(90,rx+dx*10));ry=Math.max(2,Math.min(82,ry+dy*10));let r=document.getElementById('rrRobot');r.style.left=rx+'%';r.style.top=ry+'%';if(!got&&Math.abs(rx-48)<14&&Math.abs(ry-25)<18){got=true;document.getElementById('rrBattery').style.display='none';document.getElementById('rrMsg').textContent='Battery collected! Reach the flag.'}if(got&&rx>78&&ry>52)document.getElementById('rrMsg').textContent='Mission complete! +100 ⚡'}
+function rrReset(){rx=5;ry=70;got=false;document.getElementById('rrRobot').style='left:5%;top:70%';document.getElementById('rrBattery').style.display='block';document.getElementById('rrMsg').textContent='Collect the battery.'}
+let switches=[false,false];function toggleSwitch(n){switches[n-1]=!switches[n-1];document.getElementById('sw'+n).textContent='SW'+n+' '+(switches[n-1]?'ON':'OFF');let on=switches.every(Boolean);document.getElementById('led').textContent=on?'💡':'⚫';document.getElementById('circuitMsg').textContent=on?'Circuit complete — LED powered!':'Complete the circuit.'}
+function gearPick(ok){document.getElementById('gearMsg').textContent=ok?'Correct! Larger output gear = slower speed, more torque.':'Try again — think about gear ratio.';document.getElementById('outputGear').style.fontSize=ok?'7rem':'4rem'}
+</script>
+</body></html>
