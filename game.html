@@ -185,11 +185,15 @@ section{padding:100px 0} .head{max-width:850px;margin-bottom:50px} h2{font-size:
   }
 }
 
+
+/* active navigation */
+.links a[aria-current="page"]{color:var(--blue)}
+
 </style></head><body><nav><div class="wrap nav-inner">
 <a class="logo-shell" href="index.html"><img src="mechstudio-logo-new.jpg" alt="Mech Studio"></a>
 <div class="links">
 <a href="index.html">Home</a><a href="courses.html">Courses</a><a href="schedule.html">Schedule</a>
-<a href="about.html">About</a><a href="team.html">Leadership</a><a href="game.html">Game</a><a href="contact.html">Contact</a>
+<a href="about.html">About</a><a href="team.html">Leadership</a><a href="game.html" aria-current="page">Game</a><a href="contact.html">Contact</a>
 </div><a class="nav-cta" href="schedule.html">Enroll Now</a></div></nav>
 <div class="brandbar"><span></span><span></span><span></span><span></span></div><header class="page-hero"><div class="wrap"><div class="label">Play & Learn</div><h1>Think. Move.<br><span>Solve.</span></h1><p>Try the Mech Studio robot challenge.</p></div></header><section class="game" id="game"><div class="wrap"><div class="head"><div class="label">Play & Learn</div><h2>Robo Challenge.</h2><p class="lead">A small interactive challenge gives visitors something to do instead of only scrolling.</p></div><div class="game-shell"><div class="game-intro"><h3>Power the robot.</h3><p>Use the arrows. Collect the battery first, then reach the goal robot.</p><div class="controls"><span class="blank"></span><button onclick="moveRobot(0,-1)">↑</button><span class="blank"></span><button onclick="moveRobot(-1,0)">←</button><button onclick="resetGame()">⟳</button><button onclick="moveRobot(1,0)">→</button><span class="blank"></span><button onclick="moveRobot(0,1)">↓</button><span class="blank"></span></div><div class="message" id="message">Collect the battery ⚡</div></div><div class="board" id="board"><div class="robot" id="robot">🤖</div><div class="battery" id="battery">🔋</div><div class="goal" id="goal">🤖</div><div class="obstacle" style="left:46%;top:35px"></div><div class="obstacle" style="left:51%;top:170px"></div><div class="obstacle" style="left:70%;top:25px"></div></div><div class="scorebox"><small>LEVEL</small><strong id="level">1</strong><small>SCORE</small><strong id="score">0</strong><small>MOVES</small><strong id="moves">0</strong></div></div></div></section><footer class="site-footer"><div class="wrap"><strong>MECH STUDIO</strong><span>Design. Build. Innovate.</span><a href="mailto:info@mechstudio.ca">info@mechstudio.ca</a></div></footer>
 <script>

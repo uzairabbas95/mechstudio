@@ -185,22 +185,29 @@ section{padding:100px 0} .head{max-width:850px;margin-bottom:50px} h2{font-size:
   }
 }
 
+
+/* Schedule v2 — interactive studio planner */
+.schedule-v2{background:linear-gradient(180deg,#f7fafc,#fff);padding:80px 0 105px}.planner-head{display:flex;justify-content:space-between;gap:25px;align-items:end;margin-bottom:30px}.planner-head h2{font-size:clamp(2.3rem,4vw,4rem);margin:7px 0 0}.live-dot{display:flex;align-items:center;gap:8px;font:800 .7rem Montserrat;color:#4b5c69}.live-dot i{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 0 6px rgba(63,193,97,.12)}
+.planner-layout{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(320px,.7fr);gap:25px;align-items:start}.week-board{border-radius:28px;background:#172237;color:#fff;box-shadow:0 30px 75px rgba(38,49,69,.2);overflow:hidden}.week-board-top{padding:24px 27px;border-bottom:1px solid rgba(255,255,255,.1);display:flex;justify-content:space-between;align-items:center}.week-board-top strong{font:900 1rem Montserrat}.week-board-top span{font-size:.8rem;color:#a7b8c8}.day-rail{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;background:rgba(255,255,255,.08)}.day-lane{background:#172237;min-height:430px;padding:14px 9px}.day-title{font:900 .68rem Montserrat;text-transform:uppercase;letter-spacing:.08em;color:#92a9bb;text-align:center;padding:5px 0 15px}.day-title b{display:block;color:#fff;font-size:.88rem;margin-top:5px;letter-spacing:0}.time-block{border:1px solid rgba(255,255,255,.13);border-left:4px solid var(--blue);background:linear-gradient(145deg,rgba(20,165,230,.17),rgba(255,255,255,.05));border-radius:12px;padding:10px 9px;margin-bottom:10px;cursor:pointer;transition:.2s;color:#fff;text-align:left;width:100%}.time-block:hover,.time-block.selected{transform:translateY(-2px);border-color:rgba(255,255,255,.35);background:linear-gradient(145deg,rgba(246,118,31,.3),rgba(20,165,230,.18));box-shadow:0 10px 22px rgba(0,0,0,.17)}.time-block.weekend{border-left-color:var(--orange)}.time-block strong{display:block;font:800 .66rem Montserrat;line-height:1.3}.time-block small{display:block;color:#bdd0df;font-size:.61rem;margin-top:5px;line-height:1.35}.time-block .spots{margin-top:8px;color:#83ef9f;font-weight:800;font-size:.58rem}
+.booking-dock{position:sticky;top:105px;background:#fff;border:1px solid #dfe7ed;border-radius:28px;padding:26px;box-shadow:0 22px 55px rgba(38,49,69,.11)}.booking-dock h3{font-size:1.55rem;margin:8px 0}.booking-dock .hint{font-size:.9rem;line-height:1.6;color:#6b7885}.selected-pass{margin:20px 0;border:1px solid #dfe8ee;border-radius:18px;overflow:hidden;background:#fbfdff}.pass-top{padding:16px;background:linear-gradient(100deg,#eefaff,#f7fff8);border-bottom:1px solid #dfe8ee}.pass-top small{font:900 .61rem Montserrat;letter-spacing:.09em;color:var(--blue)}.pass-top strong{display:block;font:900 1rem Montserrat;margin-top:5px}.pass-details{padding:15px;display:grid;gap:9px;color:#596875;font-size:.84rem}.pass-detail{display:flex;gap:9px;align-items:flex-start}.booking-price{display:flex;justify-content:space-between;align-items:end;padding-top:16px;border-top:1px solid var(--line)}.booking-price strong{font:900 2rem Montserrat}.booking-price span{color:#7a8793;font-size:.75rem}.booking-btn{width:100%;margin-top:16px;border:0;border-radius:13px;padding:15px;background:linear-gradient(100deg,var(--orange),#ff8d3b);color:#fff;font:900 .77rem Montserrat;text-transform:uppercase;letter-spacing:.04em;cursor:pointer;box-shadow:0 13px 25px rgba(246,118,31,.2)}.booking-btn:disabled{background:#c7d0d7;box-shadow:none}.planner-legend{display:flex;gap:16px;flex-wrap:wrap;margin-top:16px;color:#6d7a86;font-size:.75rem}.planner-legend span{display:flex;align-items:center;gap:6px}.legend-dot{width:8px;height:8px;border-radius:50%;background:var(--blue)}.legend-dot.weekend{background:var(--orange)}
+@media(max-width:1050px){.planner-layout{grid-template-columns:1fr}.booking-dock{position:static}.day-rail{overflow-x:auto;grid-template-columns:repeat(7,minmax(145px,1fr))}.week-board{overflow:hidden}}
+@media(max-width:620px){.planner-head{align-items:flex-start;flex-direction:column}.day-rail{grid-template-columns:repeat(7,155px)}.week-board-top{align-items:flex-start;flex-direction:column;gap:5px}}
+
+
+/* active navigation */
+.links a[aria-current="page"]{color:var(--blue)}
+
 </style></head><body><nav><div class="wrap nav-inner">
 <a class="logo-shell" href="index.html"><img src="mechstudio-logo-new.jpg" alt="Mech Studio"></a>
 <div class="links">
-<a href="index.html">Home</a><a href="courses.html">Courses</a><a href="schedule.html">Schedule</a>
+<a href="index.html">Home</a><a href="courses.html">Courses</a><a href="schedule.html" aria-current="page">Schedule</a>
 <a href="about.html">About</a><a href="team.html">Leadership</a><a href="game.html">Game</a><a href="contact.html">Contact</a>
 </div><a class="nav-cta" href="schedule.html">Enroll Now</a></div></nav>
-<div class="brandbar"><span></span><span></span><span></span><span></span></div><header class="page-hero"><div class="wrap"><div class="label">Enrollment</div><h1>Choose your<br><span>schedule.</span></h1>
-<p>Select a class directly from the calendar. Each Mech Discovery cohort is $399 with 16 seats.</p></div></header>
-<section id="schedule"><div class="wrap">
-<div class="calendar-shell">
-<div class="calendar-card"><div class="calendar-top"><h3 id="monthTitle">Weekly Class Calendar</h3></div>
-<div class="calendar-grid" id="weeklyCalendar"></div></div>
-<aside class="calendar-card schedule-side"><div class="label">Available Cohorts</div><h3>Pick a class</h3>
-<p id="scheduleNote">Live availability from Mech Studio.</p><div class="choice-list" id="choiceList">Loading…</div>
-<button class="enroll-big" id="enrollSelected" disabled>Choose a class first</button></aside>
-</div></div></section>
+<div class="brandbar"><span></span><span></span><span></span><span></span></div><header class="page-hero"><div class="wrap"><div class="label">Enrollment Planner</div><h1>Find your<br><span>best fit.</span></h1>
+<p>Explore the complete weekly studio schedule visually. Select any time block to see live availability and reserve a seat in Mech Discovery.</p></div></header>
+<section class="schedule-v2" id="schedule"><div class="wrap"><div class="planner-head"><div><div class="label">Live Weekly Schedule</div><h2>Pick a time. Build your future.</h2></div><div class="live-dot"><i></i> LIVE SEAT AVAILABILITY</div></div>
+<div class="planner-layout"><div><div class="week-board"><div class="week-board-top"><strong>MECH DISCOVERY · COURSE 1</strong><span>$399 · 16 students per cohort</span></div><div class="day-rail" id="weekBoard"><div style="padding:40px;color:#b8c7d3">Loading live schedule…</div></div></div><div class="planner-legend"><span><i class="legend-dot"></i> Weekday paired classes</span><span><i class="legend-dot weekend"></i> Weekend 3-hour sessions</span></div></div>
+<aside class="booking-dock"><div class="label">Your Selection</div><h3 id="pickTitle">Choose a class</h3><p class="hint" id="pickHint">Click any class in the weekly planner. We will show the complete paired schedule, remaining seats and enrollment details here.</p><div class="selected-pass" id="selectedPass" style="display:none"><div class="pass-top"><small>MECH DISCOVERY</small><strong id="passCohort"></strong></div><div class="pass-details"><div class="pass-detail">🕒 <span id="passSchedule"></span></div><div class="pass-detail">📍 <span id="passLocation"></span></div><div class="pass-detail">🟢 <span id="passSeats"></span></div></div></div><div class="booking-price"><div><strong>$399</strong><br><span>complete course</span></div><span>Electronics · Code · CAD<br>3D Printing · Robotics</span></div><button class="booking-btn" id="enrollSelected" disabled>Select a class first</button></aside></div></div></section>
 <div class="enroll-modal" id="enrollModal" aria-hidden="true"><div class="enroll-backdrop" onclick="closeEnrollModal()"></div>
 <div class="enroll-panel"><button class="modal-close" onclick="closeEnrollModal()">×</button><div class="label">Student Enrollment</div>
 <h3>Reserve a seat</h3><p class="modal-course" id="modalCourse"></p>
@@ -220,29 +227,15 @@ document.querySelectorAll('section,.reveal-target').forEach(el=>{el.classList.ad
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 <script>
 const SUPABASE_URL='https://xmslgxlezofyaimynbgy.supabase.co', SUPABASE_ANON_KEY='eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inhtc2xneGxlem9meWFpbXluYmd5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODgyNDk4NTgsImV4cCI6MjEwMzgyNTg1OH0.R4irGkF33rTBQHK4G6W4CA4fgAXkx4P6K9KTVc-tYw8';
-const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);
-let classes=[],selected=null;
-const dayOrder={Monday:1,Tuesday:2,Wednesday:3,Thursday:4,Friday:5,Saturday:6,Sunday:7};
+const db=window.supabase.createClient(SUPABASE_URL,SUPABASE_ANON_KEY);let classes=[],selected=null;
+const DAYS=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
 function esc(s){return String(s??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[m]));}
-function renderWeekly(){
- const days=['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'];
- document.getElementById('weeklyCalendar').innerHTML=days.map(d=>`<div class="cal-dayname">${d.slice(0,3)}</div>`).join('')+
- days.map(d=>{let events=classes.filter(c=>(c.schedule_display||'').includes(d));
- return `<div class="cal-day"><div class="cal-date">${d}</div>${events.map(c=>`<button class="cal-event ${selected===c.id?'selected':''}" onclick="selectClass('${c.id}')">${esc(c.cohort_name)}<br>${esc(c.schedule_display.split(' + ').find(x=>x.includes(d))||'')}</button>`).join('')}</div>`}).join('');
-}
-function renderChoices(){
- document.getElementById('choiceList').innerHTML=classes.map(c=>`<div class="choice ${selected===c.id?'selected':''}" onclick="selectClass('${c.id}')"><strong>${esc(c.cohort_name)}</strong><small>${esc(c.schedule_display)} · $${Number(c.price_cad).toFixed(0)} · ${c.seats_remaining} spots left</small></div>`).join('');
-}
-function selectClass(id){selected=id;renderWeekly();renderChoices();const c=classes.find(x=>x.id===id),b=document.getElementById('enrollSelected');b.disabled=false;b.textContent='Enroll in '+c.cohort_name;b.onclick=()=>openEnrollModal(id);}
+function sessionForDay(c,d){return (c.schedule_display||'').split(' + ').find(x=>x.includes(d))||'';}
+function renderBoard(){const board=document.getElementById('weekBoard');board.innerHTML=DAYS.map(d=>{const items=classes.filter(c=>(c.schedule_display||'').includes(d));return `<div class="day-lane"><div class="day-title">${d.slice(0,3)}<b>${d}</b></div>${items.map(c=>{const weekend=d==='Saturday'||d==='Sunday';return `<button class="time-block ${weekend?'weekend':''} ${selected===c.id?'selected':''}" onclick="selectClass('${c.id}')"><strong>${esc(c.cohort_name)}</strong><small>${esc(sessionForDay(c,d).replace(d+' ',''))}</small><div class="spots">${c.seats_remaining} spots left</div></button>`}).join('')||'<div style="opacity:.34;text-align:center;font-size:.7rem;padding-top:18px">No class</div>'}</div>`}).join('');}
+function selectClass(id){selected=id;renderBoard();const c=classes.find(x=>x.id===id);document.getElementById('pickTitle').textContent='Ready to reserve?';document.getElementById('pickHint').textContent='This selection reserves the complete cohort schedule shown below.';document.getElementById('selectedPass').style.display='block';document.getElementById('passCohort').textContent=c.cohort_name;document.getElementById('passSchedule').textContent=c.schedule_display;document.getElementById('passLocation').textContent=c.location||'Mech Studio';document.getElementById('passSeats').textContent=c.seats_remaining+' of 16 seats remaining';const b=document.getElementById('enrollSelected');b.disabled=Number(c.seats_remaining)<=0;b.textContent=Number(c.seats_remaining)<=0?'Class Full':'Enroll in this class';b.onclick=()=>openEnrollModal(id);}
 function openEnrollModal(id){const c=classes.find(x=>x.id===id);document.getElementById('classId').value=id;document.getElementById('modalCourse').textContent=`${c.course_name} · ${c.cohort_name} · ${c.schedule_display} · $${Number(c.price_cad).toFixed(0)}`;document.getElementById('enrollModal').classList.add('open');}
 function closeEnrollModal(){document.getElementById('enrollModal').classList.remove('open');}
-async function load(){
- const {data,error}=await db.from('class_availability').select('*').eq('is_published',true).eq('registration_open',true).order('display_order',{ascending:true});
- if(error){document.getElementById('choiceList').textContent='Schedule unavailable. Please contact info@mechstudio.ca';console.error(error);return;}
- classes=data||[];renderWeekly();renderChoices();
-}
-document.getElementById('enrollmentForm').addEventListener('submit',async e=>{e.preventDefault();const msg=document.getElementById('formMessage');msg.textContent='Reserving your seat…';
- const payload={p_class_id:document.getElementById('classId').value,p_student_first_name:document.getElementById('studentFirst').value.trim(),p_student_last_name:document.getElementById('studentLast').value.trim(),p_student_grade:Number(document.getElementById('studentGrade').value),p_parent_name:document.getElementById('parentName').value.trim(),p_parent_email:document.getElementById('parentEmail').value.trim(),p_parent_phone:document.getElementById('parentPhone').value.trim(),p_emergency_contact:document.getElementById('emergencyContact').value.trim(),p_notes:document.getElementById('studentNotes').value.trim()};
- const {data,error}=await db.rpc('reserve_class_seat',payload);if(error){msg.textContent='Could not reserve the seat. Please try another class.';return;}msg.textContent='Seat reserved. Payment connection is the next step.';e.target.reset();await load();});
+async function load(){const {data,error}=await db.from('class_availability').select('*').eq('is_published',true).eq('registration_open',true).order('display_order',{ascending:true});if(error){document.getElementById('weekBoard').innerHTML='<div style="padding:40px;color:#fff">Schedule unavailable. Please contact info@mechstudio.ca.</div>';console.error(error);return;}classes=data||[];renderBoard();}
+document.getElementById('enrollmentForm').addEventListener('submit',async e=>{e.preventDefault();const msg=document.getElementById('formMessage');msg.textContent='Reserving your seat…';const payload={p_class_id:document.getElementById('classId').value,p_student_first_name:document.getElementById('studentFirst').value.trim(),p_student_last_name:document.getElementById('studentLast').value.trim(),p_student_grade:Number(document.getElementById('studentGrade').value),p_parent_name:document.getElementById('parentName').value.trim(),p_parent_email:document.getElementById('parentEmail').value.trim(),p_parent_phone:document.getElementById('parentPhone').value.trim(),p_emergency_contact:document.getElementById('emergencyContact').value.trim(),p_notes:document.getElementById('studentNotes').value.trim()};const {error}=await db.rpc('reserve_class_seat',payload);if(error){msg.textContent='Could not reserve the seat. It may have just filled. Please try another class.';return;}msg.textContent='Seat reserved. Payment connection is the next step.';e.target.reset();closeEnrollModal();await load();});
 load();
 </script></body></html>

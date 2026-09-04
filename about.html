@@ -185,49 +185,48 @@ section{padding:100px 0} .head{max-width:850px;margin-bottom:50px} h2{font-size:
   }
 }
 
+
+/* About v2 — editorial makerspace story */
+.about-v2{background:#fff;padding:88px 0 105px}.about-v2 .intro-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:70px;align-items:center}
+.about-kicker{font:900 .72rem Montserrat,Arial,sans-serif;letter-spacing:.16em;text-transform:uppercase;color:var(--orange);margin-bottom:14px}
+.about-v2 h2{font-size:clamp(2.8rem,5.5vw,5.4rem);line-height:.92;margin:0 0 25px}.about-v2 h2 em{font-style:normal;color:var(--blue)}
+.about-v2 .big-copy{font-size:1.17rem;line-height:1.85;color:#536274;max-width:680px}.studio-window{position:relative;min-height:460px;border-radius:34px;background:linear-gradient(145deg,#182337,#263145);overflow:hidden;box-shadow:0 35px 85px rgba(38,49,69,.24);padding:35px;color:#fff}
+.studio-window:before{content:"";position:absolute;width:380px;height:380px;border:1px solid rgba(255,255,255,.09);border-radius:50%;right:-130px;top:-130px;box-shadow:0 0 0 55px rgba(20,165,230,.04),0 0 0 110px rgba(63,193,97,.025)}
+.studio-window .tiny{font:800 .68rem Montserrat,Arial,sans-serif;letter-spacing:.14em;color:#85dcff}.studio-window h3{font-size:2rem;max-width:430px;line-height:1.15;margin:16px 0 30px}.maker-flow{display:grid;gap:12px;position:relative;z-index:2}
+.flow-row{display:grid;grid-template-columns:48px 1fr auto;gap:14px;align-items:center;padding:14px 15px;border:1px solid rgba(255,255,255,.11);border-radius:16px;background:rgba(255,255,255,.055);backdrop-filter:blur(8px)}.flow-no{width:42px;height:42px;border-radius:13px;display:grid;place-items:center;background:#fff;color:var(--navy);font:900 .72rem Montserrat}.flow-row strong{font-family:Montserrat}.flow-row span{color:#aab9c8;font-size:.8rem}.flow-arrow{color:var(--orange);font-size:1.25rem;font-weight:900}
+.about-manifesto{margin-top:80px;display:grid;grid-template-columns:.72fr 1.28fr;gap:60px;border-top:1px solid var(--line);padding-top:65px}.manifesto-title{font-size:clamp(2rem,4vw,3.8rem);line-height:1;letter-spacing:-.05em;margin:0}.manifesto-copy{display:grid;grid-template-columns:1fr 1fr;gap:28px 35px}.manifesto-copy article{border-left:3px solid var(--blue);padding-left:18px}.manifesto-copy article:nth-child(2){border-color:var(--green)}.manifesto-copy article:nth-child(3){border-color:var(--orange)}.manifesto-copy article:nth-child(4){border-color:var(--navy)}.manifesto-copy h3{font-size:1rem;margin:0 0 8px}.manifesto-copy p{margin:0;color:#687584;line-height:1.65;font-size:.92rem}
+.team-bridge{margin-top:85px;border-radius:30px;background:linear-gradient(100deg,#f6fbff,#fff7f1);border:1px solid #e1e9ef;padding:42px 45px;display:flex;justify-content:space-between;gap:30px;align-items:center}.team-bridge h3{font-size:2rem;margin:5px 0 8px}.team-bridge p{margin:0;color:#647280;max-width:700px;line-height:1.65}.team-bridge .btn{white-space:nowrap}
+@media(max-width:900px){.about-v2 .intro-grid,.about-manifesto{grid-template-columns:1fr}.studio-window{min-height:auto}.manifesto-copy{grid-template-columns:1fr 1fr}.team-bridge{align-items:flex-start;flex-direction:column}}
+@media(max-width:560px){.manifesto-copy{grid-template-columns:1fr}.studio-window{padding:24px}.flow-row{grid-template-columns:42px 1fr}.flow-arrow{display:none}.team-bridge{padding:28px 24px}}
+
+
+/* active navigation */
+.links a[aria-current="page"]{color:var(--blue)}
+
 </style></head><body><nav><div class="wrap nav-inner">
 <a class="logo-shell" href="index.html"><img src="mechstudio-logo-new.jpg" alt="Mech Studio"></a>
 <div class="links">
 <a href="index.html">Home</a><a href="courses.html">Courses</a><a href="schedule.html">Schedule</a>
-<a href="about.html">About</a><a href="team.html">Leadership</a><a href="game.html">Game</a><a href="contact.html">Contact</a>
+<a href="about.html" aria-current="page">About</a><a href="team.html">Leadership</a><a href="game.html">Game</a><a href="contact.html">Contact</a>
 </div><a class="nav-cta" href="schedule.html">Enroll Now</a></div></nav>
-<div class="brandbar"><span></span><span></span><span></span><span></span></div><header class="page-hero"><div class="wrap"><div class="label">About Mech Studio</div><h1>Ideas become<br><span>real things.</span></h1>
-<p>A modern hands-on environment where young minds learn to think like designers, programmers, builders and engineers.</p></div></header><section class="about about-story" id="about">
-  <div class="wrap">
-    <div class="about-story-grid">
-      <div class="about-story-copy">
-        <div class="label">Inside Mech Studio</div>
-        <h2>Ideas become<br><span>real things.</span></h2>
-        <p class="about-lead">Mech Studio is a hands-on learning environment where students move beyond watching technology and start creating with it.</p>
-        <p>Students explore electronics, programming, CAD, 3D printing and robotics as connected skills. They learn by experimenting, troubleshooting, improving their designs and seeing their ideas come to life.</p>
-        <div class="about-signature">
-          <span>THINK</span><i>→</i><span>DESIGN</span><i>→</i><span>BUILD</span><i>→</i><span>TEST</span><i>→</i><span>IMPROVE</span>
-        </div>
-      </div>
-
-      <div class="about-orbit" aria-label="Mech Studio learning experience">
-        <div class="orbit-ring ring-one"></div>
-        <div class="orbit-ring ring-two"></div>
-        <div class="orbit-core">
-          <strong>MECH</strong>
-          <span>STUDIO</span>
-          <small>CREATE</small>
-        </div>
-        <div class="orbit-point op1"><b>01</b><span>Curiosity</span></div>
-        <div class="orbit-point op2"><b>02</b><span>Engineering</span></div>
-        <div class="orbit-point op3"><b>03</b><span>Problem Solving</span></div>
-        <div class="orbit-point op4"><b>04</b><span>Confidence</span></div>
-      </div>
-    </div>
-
-    <div class="about-principles">
-      <div><strong>Hands-on first.</strong><span>Students learn by building, testing and making.</span></div>
-      <div><strong>Skills connect.</strong><span>Code, electronics, design and robotics work together.</span></div>
-      <div><strong>Failure is data.</strong><span>Every challenge becomes part of the engineering process.</span></div>
-      <div><strong>Create with purpose.</strong><span>Projects turn learning into something students can proudly show.</span></div>
-    </div>
-  </div>
-</section><footer class="site-footer"><div class="wrap"><strong>MECH STUDIO</strong><span>Design. Build. Innovate.</span><a href="mailto:info@mechstudio.ca">info@mechstudio.ca</a></div></footer>
+<div class="brandbar"><span></span><span></span><span></span><span></span></div><header class="page-hero"><div class="wrap"><div class="label">The Mech Studio Experience</div><h1>Not another<br><span>classroom.</span></h1>
+<p>A place for young minds to build, test, code, design, troubleshoot and turn curiosity into things that actually work.</p></div></header>
+<section class="about-v2" id="about"><div class="wrap">
+<div class="intro-grid"><div><div class="about-kicker">What we are building</div><h2>A studio for<br><em>young makers.</em></h2><p class="big-copy">Mech Studio brings the different parts of modern engineering into one experience. Students do not learn electronics, programming, CAD, 3D printing and robotics as isolated subjects. They use them together to take an idea from first sketch to working creation.</p><p class="big-copy">Our role is to create the environment, tools and guidance that make students curious enough to ask “what if?” — and confident enough to build the answer.</p></div>
+<div class="studio-window"><div class="tiny">THE MECH STUDIO LOOP</div><h3>Every project moves through a real engineering cycle.</h3><div class="maker-flow">
+<div class="flow-row"><div class="flow-no">01</div><div><strong>Imagine</strong><br><span>Start with a problem, question or idea.</span></div><div class="flow-arrow">→</div></div>
+<div class="flow-row"><div class="flow-no">02</div><div><strong>Design</strong><br><span>Plan the circuit, code and physical solution.</span></div><div class="flow-arrow">→</div></div>
+<div class="flow-row"><div class="flow-no">03</div><div><strong>Build</strong><br><span>Turn digital ideas into real components.</span></div><div class="flow-arrow">→</div></div>
+<div class="flow-row"><div class="flow-no">04</div><div><strong>Test + Improve</strong><br><span>Debug, troubleshoot and make it better.</span></div><div class="flow-arrow">↻</div></div>
+</div></div></div>
+<div class="about-manifesto"><div><div class="about-kicker">How we think</div><h3 class="manifesto-title">The goal is not to memorize technology.<br>It is to become comfortable creating with it.</h3></div><div class="manifesto-copy">
+<article><h3>Hands-on by default</h3><p>Students spend their time making, measuring, coding, assembling and testing — not simply watching demonstrations.</p></article>
+<article><h3>Connected disciplines</h3><p>Electronics makes more sense when code controls it. CAD becomes meaningful when the part is printed and used in a robot.</p></article>
+<article><h3>Real problem solving</h3><p>When something does not work, students diagnose why. That process is where engineering thinking develops.</p></article>
+<article><h3>Projects worth showing</h3><p>Students leave with tangible work, practical skills and a clearer picture of what they can create next.</p></article>
+</div></div>
+<div class="team-bridge"><div><div class="about-kicker">The people behind the studio</div><h3>Industry experience, brought into the learning space.</h3><p>Mech Studio is led by professionals with practical experience in engineering, robotics and manufacturing. Meet the team building the studio and its learning experience.</p></div><a class="btn primary" href="team.html">Meet Our Team</a></div>
+</div></section><footer class="site-footer"><div class="wrap"><strong>MECH STUDIO</strong><span>Design. Build. Innovate.</span><a href="mailto:info@mechstudio.ca">info@mechstudio.ca</a></div></footer>
 <script>
 const observer=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.12});
 document.querySelectorAll('section,.reveal-target').forEach(el=>{el.classList.add('reveal');observer.observe(el)});
